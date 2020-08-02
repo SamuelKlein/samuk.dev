@@ -1,20 +1,16 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "noImplicitAny": false,
-        "outDir": "lib",
-        "sourceMap": true,
-        "target": "es6",
-        "resolveJsonModule" : true
+      "module": "commonjs",
+      "noImplicitReturns": true,
+      "noUnusedLocals": true,
+      "outDir": "lib",
+      "sourceMap": true,
+      "strict": true,
+      "target": "es2017"
     },
-    "typeRoots": [
-        "node_modules/@types"
-    ],
     "compileOnSave": true,
-    "exclude": [
-        "node_modules"
-    ],
     "include": [
-        "src"
+      "src"
     ]
-}
+  }
+  

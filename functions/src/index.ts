@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as functions from 'firebase-functions';
-import { Email } from './email/Email';
+import { Messages } from './firestore/Messages';
 import * as  admin from 'firebase-admin';
 
 admin.initializeApp({});
@@ -17,9 +17,9 @@ appExpress.get('/email', (req, res) => {
 
 appExpress.post('/email', async (req, res) => {
     const data = req.body;
-    const emails = new Email();
+    const emails = new Messages();
 
-    await emails.enviarEmail('samuel3dstudio@gmail.com', `Contact: ${data.name}<${data.email}>`, `${data.name}<br>${data.subject}<br><p>${data.message}</p>`);
+    await emails.send(data.email, `Contact: ${data.name}<${data.email}>`, `${data.name}<br>${data.subject}<br><p>${data.message}</p>`);
     res.send({
         msg: 'OK',
         data,
